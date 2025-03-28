@@ -8,6 +8,7 @@ task:
 :return: int or None
 """
 
+
 def b2int(value: str) -> int | None:
 
     try:
@@ -16,9 +17,8 @@ def b2int(value: str) -> int | None:
         binary_num: str = value[::-1]
 
         for ob in binary_num:
-            result_data += int(ob) * 2 ** st
+            result_data += int(ob) * 2**st
             st += 1
-
         return result_data
     except ValueError:
         print("Error in input value!")
@@ -30,5 +30,12 @@ def b2int(value: str) -> int | None:
         print(f"Some error occured: {e}")
         return None
 
-if __name__ == '__main__':
-    print(f"input 100110\nb2int = {b2int("100110")}\nbinary check {str(bin(b2int("100110")))[2:]}")
+    # finally:
+    #    print("Eit from def :3")
+
+
+if __name__ == "__main__":
+    print(
+        f"input 100110\nb2int = {b2int("100110")}\nbinary check {
+            str(bin(b2int("100110")))[2:]}"
+    )

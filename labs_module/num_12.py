@@ -9,31 +9,31 @@
 выводится соответствуючий столбец или столбцы. Максимальная автоматизация-
 алгоритмизация приветствуется!! Конец икла при нулёвом вводе!!
 """
+
 from collections import namedtuple
+
+
 def num_12():
-    # Исходная матрица
     matrix = [
-        ['16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '43'],
-        ['30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '00', '00'],
-        ['44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '00', '00', '00']
+        ["16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "43"],
+        ["30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "00", "00"],
+        ["44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "00", "00", "00"],
     ]
 
-    # Разделяем матрицу на левую и правую части
     left_part = [[row[:5] for row in matrix]]
     right_part = [[row[5:] for row in matrix]]
 
-    # Красивый вывод левой и правой частей
     max_height = max(len(left_part[0]), len(right_part[0]))
 
-    # Выводим обе части
     for i in range(max_height):
-        left_row = left_part[0][i] if i < len(left_part[0]) else [''] * 5
-        right_row = right_part[0][i] if i < len(right_part[0]) else [''] * (len(matrix[0]) - 5)
-        print(' | '.join(left_row).ljust(30) + '| ' + ' | '.join(right_row))
+        left_row = left_part[0][i] if i < len(left_part[0]) else [""] * 5
+        right_row = (
+            right_part[0][i] if i < len(right_part[0]) else [""] * (len(matrix[0]) - 5)
+        )
+        print(" | ".join(left_row).ljust(30) + "| " + " | ".join(right_row))
 
-    # Создаем именованные кортежи
-    LFI = namedtuple('LFI', ['lfi5', 'lfi4', 'lfi3', 'lfi2'])
-    RFI = namedtuple('RFI', ['rfi2', 'rfi3', 'rfi4', 'rfi5'])
+    LFI = namedtuple("LFI", ["lfi5", "lfi4", "lfi3", "lfi2"])
+    RFI = namedtuple("RFI", ["rfi2", "rfi3", "rfi4", "rfi5"])
 
     lfi5 = tuple(row[0] for row in matrix)
     lfi4 = tuple(row[1] for row in matrix)
@@ -45,13 +45,13 @@ def num_12():
     rfi4 = tuple(row[8] for row in matrix)
     rfi5 = tuple(row[9] for row in matrix)
 
-    # Создаем кортежи
     left_tuples = LFI(lfi5=lfi5, lfi4=lfi4, lfi3=lfi3, lfi2=lfi2)
     right_tuples = RFI(rfi2=rfi2, rfi3=rfi3, rfi4=rfi4, rfi5=rfi5)
 
-    # Бесконечный цикл для ввода пользователя
     while True:
-        user_input = input("Введите имя кортежа (например, lfi3 или rfi2) или 0 для выхода: ")
+        user_input = input(
+            "Введите имя кортежа (например, lfi3 или rfi2) или 0 для выхода: "
+        )
         if user_input == "0":
             break
         elif hasattr(left_tuples, user_input):
@@ -61,5 +61,6 @@ def num_12():
         else:
             print("Некорректный ввод. Попробуйте снова.")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     num_12()
