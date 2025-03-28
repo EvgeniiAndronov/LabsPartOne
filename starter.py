@@ -12,7 +12,7 @@ def gen_list_width_height_rand(count: int, min_val: int = 2, max_val: int = 10) 
     for _ in range(count):
         for _ in range(2):
             result.append([randint(min_val, max_val),
-                          randint(min_val, max_val)])
+                           randint(min_val, max_val)])
 
     return result
 
@@ -24,7 +24,7 @@ def gen_list_rand_int_unic(start: int = 1, end: int = 91) -> list:
 
 
 def gen_list_rand_binary_num_str(
-    count: int, min_len: int = 1, max_len: int = 10
+        count: int, min_len: int = 1, max_len: int = 10
 ) -> list | None:
     result: list = []
     if min_len > max_len or min_len < 1:
@@ -72,7 +72,6 @@ def check_num_68():
 
 def check_num_12():
     num_12()
-
 
 # check_num_6()
 # check_num_11()
