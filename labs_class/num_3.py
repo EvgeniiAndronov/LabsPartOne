@@ -20,5 +20,6 @@ class Num_3:
 
 
 if __name__ == "__main__":
-    t = Num_3(delitel1=3, delitel2=5, max_val=10)  # вот тут можно не указывать аргументы
+    # вот тут можно не указывать аргументы
+    t = Num_3(delitel1=3, delitel2=5, max_val=10)
     print(t.task())
